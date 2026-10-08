@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clínica Saúde+ - Nossos Serviços</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101922",
+                        "card-light": "#F4F7F6",
+                        "card-dark": "#1a2a38",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "text-muted-light": "#617589",
+                        "text-muted-dark": "#94a3b8",
+                        "accent": "#F5A623"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+{% include 'includes/header.html'%}
+<main class="flex w-full flex-1 flex-col items-center">
+<div class="flex w-full max-w-7xl flex-col px-4 sm:px-8 py-10 lg:py-16">
+<!-- HeroSection -->
+<section class="w-full">
+<div class="relative flex min-h-[400px] flex-col items-center justify-center gap-6 rounded-xl bg-cover bg-center p-6 text-center" data-alt="A doctor showing medical information on a tablet to a patient in a bright, modern clinic setting." style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAInYxgOgNV_N8ObbR56lWXahhdIFxz6zcK3y5LiZeHxAAEmBAV7pU6LFqhyx8E4R9Or6ZbclBYec-rKd3lV4l5s6Uv3QeEP4VCb2i_ERH9pBW56LL7wdX891KUbTDPFiLpQOVpxXr3ZbnFmZdZq43ZneGBQh-rg9WHdz4lniZfv1N7cOHisu-_zk4gYs2ur9SGP4mULb--XG8H5TzjJpexPe9nF8ds3FlnMsXIxwYjt12binQq4hObJpMLErxeefIDdvb0qE3wrusx");'>
+<div class="flex flex-col gap-4 max-w-3xl">
+<h1 class="text-white text-4xl font-black leading-tight tracking-tighter md:text-5xl">Nossos Serviços e Tratamentos</h1>
+<p class="text-white/90 text-base font-normal leading-normal md:text-lg">Cuidado completo e dedicado para a sua saúde e bem-estar. Conheça nossas especialidades e encontre o tratamento ideal para você.</p>
+</div>
+</div>
+</section>
+<!-- PageHeading and Chips -->
+<section class="mt-12 lg:mt-20">
+<div class="flex flex-col items-center gap-4 text-center">
+<p class="text-3xl font-black leading-tight tracking-tighter md:text-4xl">Conheça Nossos Serviços Médicos</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-base font-normal leading-normal max-w-2xl">Explore a nossa gama completa de cuidados médicos, desde consultas de rotina a tratamentos especializados, todos desenhados a pensar em si e na sua família.</p>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-3 pt-8">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 dark:bg-primary/30 px-5 text-primary text-sm font-semibold">Todos</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark px-5 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Cardiologia</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark px-5 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Dermatologia</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark px-5 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Pediatria</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-card-light dark:bg-card-dark px-5 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Exames</button>
+</div>
+</section>
+<!-- Service Cards Grid -->
+<section class="mt-12 lg:mt-16">
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+<!-- Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">cardiology</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Consulta de Cardiologia</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Cuidado especializado para a saúde do seu coração.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">face</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Limpeza de Pele Profunda</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Renove sua pele com nossos tratamentos dermatológicos.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">child_care</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Consulta Pediátrica</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Acompanhamento completo para o desenvolvimento infantil.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">monitor_heart</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Ecocardiograma</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Exame de imagem detalhado para avaliar a função cardíaca.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">dermatology</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Tratamento de Acne</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Soluções eficazes para uma pele saudável e sem marcas.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">vaccines</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Vacinação Infantil</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Proteja seus filhos com nosso calendário de vacinação.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 7 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">neurology</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Consulta Neurológica</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Diagnóstico e tratamento de distúrbios do sistema nervoso.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<!-- Card 8 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/50 bg-card-light dark:bg-card-dark p-6 transition-all hover:shadow-lg hover:-translate-y-1">
+<span class="material-symbols-outlined text-primary text-4xl">blood_pressure</span>
+<div class="flex flex-col gap-2">
+<p class="text-base font-bold">Check-up Geral</p>
+<p class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal">Avaliação completa da sua saúde para prevenção de doenças.</p>
+</div>
+<a class="text-primary text-sm font-semibold mt-auto flex items-center gap-1" href="#">Saiba Mais <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="mt-16 lg:mt-24 w-full bg-primary/10 dark:bg-primary/20 rounded-xl p-8 lg:p-12">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+<div class="flex flex-col gap-2">
+<h3 class="text-2xl font-bold tracking-tight text-text-light dark:text-white">Pronto para Cuidar da Sua Saúde?</h3>
+<p class="text-text-muted-light dark:text-text-muted-dark max-w-lg">Nossa equipe está pronta para te receber. Agende sua consulta hoje mesmo e dê o primeiro passo para uma vida mais saudável.</p>
+</div>
+<button class="flex min-w-[200px] shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-accent text-white text-base font-bold shadow-lg hover:bg-accent/90 transition-colors">
+<span class="truncate">Agende Sua Consulta Agora</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-card-light dark:bg-card-dark border-t border-gray-200/80 dark:border-gray-700/50 mt-16">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-2">
+<a class="flex items-center gap-2 text-text-light dark:text-text-dark" href="#">
+<span class="material-symbols-outlined text-primary text-2xl">health_and_safety</span>
+<h2 class="text-lg font-bold">Clínica Saúde+</h2>
+</a>
+<p class="mt-4 text-sm text-text-muted-light dark:text-text-muted-dark max-w-sm">Cuidando da sua saúde com excelência e dedicação desde 2005.</p>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-white">Links Rápidos</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Sobre Nós</a></li>
+<li><a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Nossos Médicos</a></li>
+<li><a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Contato</a></li>
+<li><a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-white">Contato</h4>
+<ul class="mt-4 space-y-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+<li>Rua Principal</li>
+<li>Arimba</li>
+<li>+244 929152722</li>
+<li>clinicasaudemais@gmail.com</li>
+</ul>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-200/80 dark:border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-text-muted-light dark:text-text-muted-dark">
+<p>© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="hover:text-primary" href="#">Facebook</a>
+<a class="hover:text-primary" href="#">Instagram</a>
+<a class="hover:text-primary" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button -->
+
+
+
+
+{% include 'includes/bot.html'%}
+
+
+
+
+
+<!-- Floating Action Button -->
+
+</div>
+</body></html>

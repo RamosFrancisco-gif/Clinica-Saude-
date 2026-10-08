@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contato - Clínica Saúde+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2",
+              "background-light": "#F5F7FA",
+              "background-dark": "#101922",
+              "text-light": "#333333",
+              "text-dark": "#f5f7fa",
+              "subtext-light": "#617589",
+              "subtext-dark": "#a0aec0",
+              "border-light": "#e2e8f0",
+              "border-dark": "#2d3748",
+              "card-light": "#FFFFFF",
+              "card-dark": "#1a202c",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+
+<div class="header" style="margin-bottom: 20px;">
+    
+{% include 'includes/header.html'%}
+</div>
+
+
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-6 md:p-10">
+<div class="max-w-4xl mx-auto space-y-8">
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<h2 class="text-[#111418] dark:text-white text-3xl font-extrabold leading-tight tracking-tight">Meus Pedidos de Exame</h2>
+<p class="text-gray-500 dark:text-gray-400 text-base max-w-xl">Visualize e baixe as guias de exames solicitadas pelos seus médicos. Clique em cada pedido para ver os detalhes e orientações de preparo.</p>
+</div>
+<div class="flex gap-2">
+
+
+</div>
+</div>
+<!-- Status Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex h-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-white px-5 text-sm font-bold shadow-sm">
+<span>Todos</span>
+<span class="bg-white/20 px-1.5 py-0.5 rounded text-[10px]"></span>
+</button>
+
+
+</div>
+<!-- Exam Cards List -->
+<div class="grid gap-6">
+<!-- Card 1 -->
+ {% for pedido in pedidos_analise %}
+<div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-md transition-shadow">
+<div class="p-6">
+<div class="flex flex-col lg:flex-row gap-6">
+<!-- Doctor Avatar/Info -->
+<div class="flex lg:flex-col items-center lg:items-start gap-4 lg:w-48 shrink-0">
+<div class="bg-primary/10 rounded-xl size-16 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">stethoscope</span>
+</div>
+<div class="flex flex-col">
+<p class="text-xs font-bold text-primary uppercase tracking-wide">Solicitante</p>
+<h3 class="text-[#111418] dark:text-white font-bold text-lg leading-tight">DR. {{ pedido.medico.nome }}</h3>
+<p class="text-gray-500 text-sm">{{ pedido.medico.especialidade }}</p>
+</div>
+</div>
+<!-- Request Content -->
+<div class="flex-1 space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3 border-b border-gray-50 dark:border-gray-800 pb-3">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-gray-400 uppercase">Data do Pedido</span>
+<span class="text-sm font-bold text-gray-700 dark:text-gray-300">{{ pedido.realizado_em }}</span>
+</div>
+<div class="h-8 w-px bg-gray-200 dark:bg-gray-800 hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-gray-400 uppercase">Status</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">{{ pedido.status }} em Realização</span>
+</div>
+</div>
+
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<h4 class="text-sm font-bold text-[#111418] dark:text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">list_alt</span>
+                                                        Exames Solicitados
+                                                    </h4>
+<ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 ml-6 list-disc">
+<li>{% if pedido.exames %}
+            <ul>
+                {% for exame in pedido.exames %}
+                    <li>{{ exame.nome }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Sem exames associados.</p>
+        {% endif %}</li>
+
+</ul>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border-l-4 border-primary/40">
+<h4 class="text-sm font-bold text-[#111418] dark:text-white mb-1">Observações Médicas</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 italic">{{ pedido.observacoes }}</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-end gap-3 pt-4">
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+<!-- Info Alert -->
+<div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 flex gap-4 border border-blue-100 dark:border-blue-900/30">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+<div class="space-y-1">
+<h4 class="text-primary font-bold text-sm">Importante</h4>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                    Os pedidos de exames têm validade de 90 dias a partir da data de solicitação. Caso sua guia tenha expirado, por favor entre em contato com a clínica para renovação.
+                                </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Termos de Serviço</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Política de Privacidade</a>
+</div>
+</div>
+</div>
+{% include 'includes/bot.html'%}
+</footer>
+</div>
+</body></html>

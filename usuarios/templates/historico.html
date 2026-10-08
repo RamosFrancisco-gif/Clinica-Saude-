@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contato - Clínica Saúde+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2",
+              "background-light": "#F5F7FA",
+              "background-dark": "#101922",
+              "text-light": "#333333",
+              "text-dark": "#f5f7fa",
+              "subtext-light": "#617589",
+              "subtext-dark": "#a0aec0",
+              "border-light": "#e2e8f0",
+              "border-dark": "#2d3748",
+              "card-light": "#FFFFFF",
+              "card-dark": "#1a202c",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+
+<div class="header" style="margin-bottom: 20px;">
+    
+{% include 'includes/header.html'%}
+</div>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex flex-col w-64 bg-white dark:bg-background-dark dark:border-r dark:border-gray-800 p-4 shrink-0">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+
+<div class="flex flex-col">
+<h1 class="text-[#111418] dark:text-white text-base font-semibold leading-normal">Usuario: {{request.session.paciente_nome}}</h1>
+
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'historico' %}">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+<p class="text-sm font-medium leading-normal">Histórico de Agendamentos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="#">
+<span class="material-symbols-outlined text-xl">description</span>
+<p class="text-sm font-medium leading-normal">Documentos</p>
+</a>
+<a  class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'ver_pedidos_analises' %}">
+<span class="material-symbols-outlined text-xl">description</span>
+<p class="text-sm font-medium leading-normal">Ver Pedidos de analise</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'home' %}">
+<span class="material-symbols-outlined text-xl">logout</span>
+<p class="text-sm font-medium leading-normal">Sair</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="#">
+        
+        
+</a>
+</div>
+</aside><!-- Main Content -->
+<main class="flex-1 p-6 lg:p-10">
+<div class="mx-auto max-w-4xl">
+
+<div class="mt-12">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight tracking-tight">Histórico de Agendamentos</h2>
+</div>
+<!-- Appointments Table -->
+<div class="mt-6 flow-root">
+<div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+<div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+<div class="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5 dark:ring-gray-800 rounded-xl">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-background-dark/80">
+<thead class="bg-gray-50 dark:bg-white/5">
+<tr>
+<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6" scope="col">Especialista</th>
+<th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-white sm:pl-6" scope="col">Especialidade</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Data e Hora</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Status</th>
+<th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white" scope="col">Ações</th>
+<th class="relative py-3.5 pl-3 pr-4 sm:pr-6" scope="col">
+<span class="sr-only">Ações</span>
+</th>
+</tr>
+</thead>
+  {% for consulta in consultas %}
+<tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+<tr>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-100 sm:pl-6">{{consulta.medico}}</td>
+<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-100 sm:pl-6">{{consulta.tipoConsulta}}</td>
+<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">{{consulta.data}} - {{consulta.horario}}</td>
+{% if consulta.status == 'CANCELADA' %}
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-red-100 dark:bg-red-900/50 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:text-red-300">Cancelado</span>
+</td>
+{% else %}
+<td class="whitespace-nowrap px-3 py-4 text-sm">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">{{consulta.status}}</span>
+</td>
+{% endif %}
+    <td class="whitespace-nowrap px-3 py-4 text-sm flex gap-2">
+  {% if consulta.status == 'PENDENTE' %}
+        <a class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 text-xs"
+                  href="{% url 'cancelar_consulta' consulta.id %}">Cancelar consulta</a>
+
+        {% elif consulta.status == 'CANCELADA' %}
+         <a href="{% url 'remarconsulta' consulta.id %}"
+           class="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-700 text-xs">
+            Remarcar Consulta
+        </a>
+        {% elif consulta.status == 'REALIZADA' %}
+          <a href="{% url 'ver_receitas' consulta.id %}"
+           class="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-xs">
+            Ver Receita
+        </a>
+         
+        
+
+
+
+    </td>
+    {% endif %}
+
+</tr>
+</tbody>
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer class="w-full bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Termos de Serviço</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Política de Privacidade</a>
+</div>
+</div>
+</div>
+{% include 'includes/bot.html'%}
+</footer>
+</div>
+</body></html>

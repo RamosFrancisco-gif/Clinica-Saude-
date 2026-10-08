@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+}
+
+header {
+    padding: 20px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+header .interface .flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .interface .flex nav ul{
+    display: flex;
+    gap: 50px;
+}
+header .interface .flex nav ul a{
+    color: rgba(0, 0, 0, 0.677);
+}
+header .interface .flex nav ul a:hover{
+    color: rgb(65, 65, 204);
+}
+
+header .interface .flex .link2 a{
+     display: inline-block;
+    padding: 10px 40px;
+    background: rgb(71, 113, 239);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header .interface .flex .link2 a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    filter: brightness(1.1);
+}
+header .interface .flex .logo{
+    display: flex;
+    align-items: center;
+}

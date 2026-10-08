@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clínica Saúde+ - Sobre Nós</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2A6F97",
+            "secondary": "#66B3BA",
+            "background-light": "#F4F4F4",
+            "background-dark": "#101922",
+            "text-light": "#333333",
+            "text-dark": "#F4F4F4",
+            "card-light": "#FFFFFF",
+            "card-dark": "#182430",
+            "border-light": "#dbe0e6",
+            "border-dark": "#36414a",
+            "muted-light": "#617589",
+            "muted-dark": "#a0b0c2"
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+{% include 'includes/header.html'%}
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="container mx-auto px-4 py-8 md:py-16">
+<div class="@container">
+<div class="@[480px]:p-0">
+<div class="flex min-h-[480px] flex-col gap-6 rounded-xl bg-cover bg-center bg-no-repeat items-start justify-end p-6 @[480px]:gap-8 @[480px]:px-10 @[480px]:pb-10" data-alt="Imagem da recepção moderna e acolhedora de uma clínica médica." style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAofrVVD3kpHB1cveXPFLM7EyhoX2_cKyADJrZmOA2zc3tXKpDev01H-E0WXid0eIVsKq0FtmqwV7J6kwm5x846sGu35cZBjW5qCWXAZwIa6aifgs9ghcrLZIudUp1M05LCiv9KV_NIRuNIVpKlW_c0EMY393mmDlB1e5cTWxEEaHUsTr_nHSZLsGhQuvAzI4Qm1ejUAtoIbREfo61TahQa8hVzTxHPrXb6cAmLUybNHn4aQkcq33LsoPg42KLFe1FSMgBAD1QBy0tp");'>
+<div class="flex flex-col gap-4 text-left max-w-2xl">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">Cuidando de Você e Sua Família</h1>
+<p class="text-white text-base font-normal leading-normal @[480px]:text-lg">Nossa missão é oferecer um atendimento médico de excelência, combinando tecnologia de ponta com um cuidado humano e personalizado.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Section "Nossa História" -->
+<section class="container mx-auto px-4 py-8 md:py-16">
+<div class="flex flex-col gap-10 @container">
+<div class="flex flex-col items-center text-center gap-6">
+<div class="flex flex-col gap-4 max-w-3xl">
+<h2 class="text-text-light dark:text-text-dark text-[28px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Nossa História</h2>
+<p class="text-muted-light dark:text-muted-dark text-base font-normal leading-relaxed">Fundada com a filosofia de que cada paciente é único, nossa clínica tem uma trajetória marcada pela excelência e pela busca contínua por um atendimento mais humano e eficaz. Ao longo dos anos, crescemos e evoluímos, mas nosso compromisso com sua saúde permanece o mesmo.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base hover:opacity-90 transition-opacity w-fit">
+<span class="truncate"><a href="{% url 'servicos'%}">Conheça Nossos Serviços</a></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Values Section -->
+<section class="container mx-auto px-4 py-8 md:py-16">
+<div class="flex flex-col items-center gap-8">
+<h2 class="text-text-light dark:text-text-dark text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Nossos Valores</h2>
+<div class="grid w-full grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
+<div class="flex flex-1 flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center">
+<div class="text-secondary">
+<span class="material-symbols-outlined" style="font-size: 32px;">favorite</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight">Compromisso</h3>
+<p class="text-muted-light dark:text-muted-dark text-sm font-normal leading-normal">Dedicados ao seu bem-estar em cada etapa do tratamento.</p>
+</div>
+</div>
+<div class="flex flex-1 flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center">
+<div class="text-secondary">
+<span class="material-symbols-outlined" style="font-size: 32px;">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight">Inovação</h3>
+<p class="text-muted-light dark:text-muted-dark text-sm font-normal leading-normal">Utilizamos as mais recentes tecnologias para diagnósticos precisos.</p>
+</div>
+</div>
+<div class="flex flex-1 flex-col gap-3 rounded-xl border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 text-center items-center">
+<div class="text-secondary">
+<span class="material-symbols-outlined" style="font-size: 32px;">groups</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-lg font-bold leading-tight">Empatia</h3>
+<p class="text-muted-light dark:text-muted-dark text-sm font-normal leading-normal">Um cuidado atencioso e humano que entende suas necessidades.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="bg-card-light dark:bg-card-dark py-12 md:py-24">
+<div class="container mx-auto px-4">
+<div class="flex flex-col items-center gap-10">
+<div class="text-center max-w-2xl">
+<h2 class="text-text-light dark:text-text-dark text-[28px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">Conheça Nossa Equipe</h2>
+<p class="text-muted-light dark:text-muted-dark mt-2">Profissionais dedicados e experientes prontos para cuidar da sua saúde.</p>
+</div>
+<div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+{% for medico in medicos %}
+    <div class="text-center">
+        {% if medico.imagem %}
+            <img class="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
+                 src="{{ medico.imagem.url }}">
+        {% endif %}
+
+        <h3 class="text-gray-900 dark:text-white text-lg font-bold">
+            DR. {{ medico.nome }}
+        </h3>
+
+        <p class="text-primary font-medium">
+            {{ medico.especialidade }}
+        </p>
+    </div>
+{% empty %}
+    <p class="text-gray-700 dark:text-gray-300 mt-4">
+        Não existe nenhum profissional.
+    </p>
+{% endfor %}
+
+
+
+
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="container mx-auto px-4 py-12 md:py-24">
+<div class="bg-primary rounded-xl p-8 md:p-12 text-center flex flex-col items-center gap-6">
+<h2 class="text-white text-3xl md:text-4xl font-bold max-w-2xl">Pronto para cuidar da sua saúde?</h2>
+<p class="text-white/80 max-w-xl">Nossa equipe está pronta para te receber. Agende sua consulta hoje mesmo e dê o primeiro passo para uma vida mais saudável.</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Agende sua Consulta Agora</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 py-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h3 class="text-lg font-bold">Clínica Saúde+</h3>
+</div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Cuidando da sua saúde com excelência e dedicação.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-semibold mb-2">Contato</h4>
+<p class="text-sm text-muted-light dark:text-muted-dark">Arimba/Rua Principal</p>
+<p class="text-sm text-muted-light dark:text-muted-dark">(+244) 929152722</p>
+<p class="text-sm text-muted-light dark:text-muted-dark">contato@clinicasaudemais.com</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-semibold mb-2">Siga-nos</h4>
+<div class="flex gap-4">
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary" href="#">Facebook</a>
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary" href="#">Instagram</a>
+<a class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-border-light dark:border-border-dark pt-4 text-center text-sm text-muted-light dark:text-muted-dark">
+<p>© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+{% include 'includes/bot.html'%}
+</div>
+</div>
+</body></html>

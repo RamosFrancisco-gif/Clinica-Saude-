@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clínica Saúde+ | Cuidado de Saúde Inovador</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- TopNavBar -->
+<!-- TopNavBar -->
+{% include 'includes/header.html'%}
+<main class="flex-grow">
+<!-- HeroSection -->
+<section class="container mx-auto p-4 @container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10" data-alt="A modern and clean clinic reception area with soft lighting." style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBgCoPCa27t4HkEXTlmj4OC_qsG2FMhoD0ooO_94IXtxdpHMSoaLiwWJSO9V5Jxy4YKyd8BigSNv5anVY_IrAQ6KIuZa4k5KFUrahyL2WXim7HFln__iAV_n3Uj--k1Mg3mDYH0GOY3CE_lCFtC9xpxon5wo-NxDYIfdQ4rKqoF7xmo1SBbYKJj6IBVEU0puW6uJNAImaebhJ7O3kNrgzbWYnVgoQHxlpJdbUh8lNxCo3AdKOCmQlhSH2sEUwvd29T3rMwmDW2peDCZ");'>
+<div class="flex flex-col gap-2 text-left max-w-2xl">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                Cuidado de Saúde Inovador e Personalizado
+              </h1>
+<h2 class="text-white/90 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                Conte com o suporte do nosso assistente virtual 24/7 para tirar suas dúvidas e agendar consultas.
+              </h2>
+</div>
+{% if not request.session.paciente_id %}
+<div class="flex flex-wrap gap-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] hover:bg-primary/90 transition-colors">
+
+<a class="truncate" href="{% url 'cadastroPatients'%}">Cadastre-se Aqui</a>
+</button>
+
+</div>
+{% endif %}
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="container mx-auto py-16 px-4">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-gray-900 dark:text-white text-center text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-8 pt-5">Nossos Serviços</h2>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-6 flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">cardiology</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Cardiologia</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Cuidado especializado para a saúde do seu coração.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-6 flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">stethoscope</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Clínica Geral</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Atendimento completo para todas as suas necessidades de saúde.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-6 flex-col items-center text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+<span class="material-symbols-outlined text-primary text-4xl">biotech</span>
+<div class="flex flex-col gap-1">
+<h3 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Exames de Rotina</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Realize seus exames com tecnologia de ponta e precisão.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FeatureSection (Virtual Assistant) -->
+<section class="container mx-auto py-16 px-4">
+<div class="flex flex-col gap-10 @container">
+<div class="flex flex-col gap-4 max-w-3xl mx-auto text-center">
+<h1 class="text-gray-900 dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+              Conheça nosso Assistente Clínico Virtual
+            </h1>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">
+              Nosso assistente inteligente está disponível para ajudar você a qualquer hora do dia. Tire suas dúvidas, agende consultas e receba informações sobre preparo para exames de forma rápida e fácil.
+            </p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 max-w-4xl mx-auto">
+<div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-4 flex-col">
+<span class="material-symbols-outlined text-primary text-3xl">quiz</span>
+<div class="flex flex-col gap-1">
+<h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Tire Dúvidas</h2>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Receba respostas instantâneas sobre sintomas e tratamentos.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-4 flex-col">
+<span class="material-symbols-outlined text-primary text-3xl">calendar_add_on</span>
+<div class="flex flex-col gap-1">
+<h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Agende Consultas</h2>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Encontre horários disponíveis e marque sua consulta em segundos.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/20 p-4 flex-col">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+<div class="flex flex-col gap-1">
+<h2 class="text-gray-900 dark:text-white text-base font-bold leading-tight">Informações de Exames</h2>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Saiba como se preparar para seus procedimentos médicos.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="bg-white dark:bg-gray-800/20 py-20">
+<div class="container mx-auto px-4">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<h2 class="text-gray-900 dark:text-white text-[32px] font-bold leading-tight tracking-[-0.015em]">Nossa Equipe</h2>
+<p class="text-gray-700 dark:text-gray-300 mt-4">Profissionais dedicados a cuidar da sua saúde com excelência e empatia.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+{% for medico in medicos %}
+    <div class="text-center">
+        {% if medico.imagem %}
+            <img class="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
+                 src="{{ medico.imagem.url }}">
+        {% endif %}
+
+        <h3 class="text-gray-900 dark:text-white text-lg font-bold">
+            DR. {{ medico.nome }}
+        </h3>
+
+        <p class="text-primary font-medium">
+            {{ medico.especialidade }}
+        </p>
+    </div>
+{% empty %}
+    <p class="text-gray-700 dark:text-gray-300 mt-4">
+        Não existe nenhum profissional.
+    </p>
+{% endfor %}
+
+</div>
+</div>
+</section>
+<!-- Floating Action Button -->
+
+
+{% include 'includes/bot.html'%}
+<!-- Secion for assistente -->
+
+
+
+</main>
+<!-- Footer -->
+<footer class="bg-gray-900 dark:bg-black text-white">
+<div class="container mx-auto px-4 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-lg font-bold mb-4">Clínica Saúde+</h3>
+<p class="text-gray-400 text-sm">Cuidando da sua saúde com tecnologia e humanidade.</p>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Navegação</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="text-gray-400 hover:text-white" href="{% url 'home' %}">Início</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Serviços</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Sobre Nós</a></li>
+<li><a class="text-gray-400 hover:text-white" href="#">Contato</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Contato</h4>
+<address class="not-italic text-sm text-gray-400 space-y-2">
+<p>Arco ires</p>
+<p>Telefone: +244 929152722</p>
+<p>Email: contato@saudemais.com</p>
+</address>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Redes Sociais</h4>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-white" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.79 2.013 10.145 2 12.315 2zm-1.002 3.705a.75.75 0 01.75-.75h1.88a.75.75 0 010 1.5h-1.88a.75.75 0 01-.75-.75zM12 15.25a3.25 3.25 0 100-6.5 3.25 3.25 0 000 6.5zm0-8.25a5 5 0 100 10 5 5 0 000-10z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+<p>© 2025 Clínica Saúde+. Todos os direitos reservados. | <a class="hover:text-white" href="#">Política de Privacidade</a></p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

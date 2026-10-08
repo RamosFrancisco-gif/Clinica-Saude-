@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Login - Clínica Assistente</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+</head>
+<div class="header" style="margin-bottom: 20px;">
+
+  {% include 'includes/header.html'%}
+</div>
+{% include 'includes/bot.html'%}
+<body class="font-display">
+  <div
+    class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden"
+    style='font-family: Manrope, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="flex flex-1 justify-center">
+        <div class="layout-content-container flex flex-col w-full flex-1">
+          <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+            <!-- Coluna da Esquerda: Formulário de Login -->
+            <div
+              class="flex flex-col items-center justify-center p-8 sm:p-12 order-2 lg:order-1 bg-white dark:bg-background-dark">
+              <div class="flex w-full max-w-md flex-col gap-8">
+                <!-- Logo e Cabeçalho -->
+                <div class="flex flex-col gap-4 items-center text-center">
+                  <svg class="text-primary h-12 w-12" fill="none" height="48" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="48"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <div class="flex flex-col gap-3">
+                    <p class="text-[#111418] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                      Acesse sua conta</p>
+                    <p class="text-[#617589] dark:text-gray-400 text-base font-normal leading-normal">Bem-vindo(a) de
+                      volta.</p>
+                  </div>
+                </div>
+                <!-- Campos de Formulário -->
+                <form action="{% url 'login'%}" method="POST">
+                  {% csrf_token %}
+                  <div class="flex flex-col gap-6">
+                    <label class="flex flex-col min-w-40 flex-1">
+                      <p class="text-[#111418] dark:text-gray-300 text-base font-medium leading-normal pb-2">E-mail ou
+                        Usuário</p>
+                      <div class="relative flex w-full flex-1 items-stretch">
+                        <input
+                          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-[#617589] pl-12 pr-4 py-[15px] text-base font-normal leading-normal"
+                          placeholder="Digite seu e-mail ou nome de usuário" name="email" />
+                        <div class="absolute left-0 top-0 flex h-full items-center justify-center pl-4">
+                          
+                        </div>
+                      </div>
+                    </label>
+                    <label class="flex flex-col min-w-40 flex-1">
+                      <p class="text-[#111418] dark:text-gray-300 text-base font-medium leading-normal pb-2">Senha</p>
+                      <div class="relative flex w-full flex-1 items-stretch">
+                        <input
+                          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-primary dark:focus:border-primary h-14 placeholder:text-[#617589] pl-12 pr-12 py-[15px] text-base font-normal leading-normal"
+                          placeholder="Digite sua senha" type="password" name="password" />
+                        <div class="absolute left-0 top-0 flex h-full items-center justify-center pl-4">
+                      
+                        </div>
+                        <button
+                          class="absolute right-0 top-0 flex h-full items-center justify-center pr-4 text-[#617589] dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+               
+                        </button>
+                      </div>
+                      <a class="text-[#617589] dark:text-gray-400 text-sm font-normal leading-normal pt-2 text-right underline hover:text-primary dark:hover:text-primary"
+                        href="{% url 'esqueceu_Senha' %}">Esqueci minha senha</a>
+                    </label>
+                  </div>
+                  <!-- Botão de Ação -->
+                  <div class="flex flex-col gap-4">
+                    <button
+                      class="flex items-center justify-center whitespace-nowrap rounded-lg bg-primary text-white text-base font-bold h-14 w-full transition-colors hover:bg-primary/90">Entrar</button>
+                    <p class="text-[#617589] dark:text-gray-400 text-center text-sm font-normal">
+                      Ainda não tem uma conta? <a class="font-bold text-primary underline hover:text-primary/90"
+                        href="{% url 'cadastroPatients' %}">Cadastre-se</a>
+                      {% for message in messages %}
+                    <p style="margin-left: 120px;">{{message}}</p>
+                    {% endfor %}
+                    </p>
+                  </div>
+              </div>
+            </div>
+            <!-- Coluna da Direita: Imagem -->
+            <div class="hidden lg:flex w-full order-1 lg:order-2">
+              <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto"
+                data-alt="Ilustração abstrata com formas geométricas em tons de azul e branco, representando tecnologia e saúde."
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMDPwiN9TzuWJd7N5mArdlnduu76JQGEwZulLvwFwK8KTxwuG7LNXKLmsYuIsq16Kl_Tab5MGmBiOEDiBH31wmFWPYcfp3cCb9-9BNIuX-YmMut_Kq6cXP_5n49aMu69GvqcUNBQPYumeiHvv6U3uZP2aN-H8lqu_trgr6VCOOtHvEE9H-s5ObC_7_wHvaV9fGFQYahKIAh0YLwie0hGOVGW5j-kdbyhSynk7dyhyjq6i2QQ-0hCOzrFO-m1RDHrQpH0skn7ly0wNX");'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

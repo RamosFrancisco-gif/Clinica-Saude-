@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recuperar Senha - Clínica Saúde+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3A86FF", // Azul calmo from user request
+            "background-light": "#f8f9fa", // Cinza muito claro from user request
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<div class="header" style="margin-bottom: 20px;">
+
+  {% include 'includes/header.html'%}
+</div>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center items-center py-5 px-4">
+<div class="layout-content-container flex flex-col w-full max-w-md">
+<div class="bg-white dark:bg-background-dark/50 shadow-sm rounded-xl p-8 border border-gray-200/50 dark:border-white/10">
+<div class="flex flex-col items-center mb-8">
+<div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">
+                  health_and_safety
+                </span>
+</div>
+<p class="text-[#333333] dark:text-gray-200 text-sm font-medium">Clínica Saúde+</p>
+</div>
+<div class="flex flex-wrap justify-between gap-3 text-center mb-8">
+<div class="flex w-full flex-col gap-3">
+<p class="text-[#333333] dark:text-white text-3xl font-bold leading-tight tracking-tight">Esqueceu sua senha?</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Insira seu e-mail abaixo e enviaremos um link para você redefinir sua senha.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<label class="flex flex-col w-full flex-1">
+<p class="text-[#333333] dark:text-gray-200 text-sm font-medium leading-normal pb-2">E-mail</p>
+<div class="flex w-full flex-1 items-stretch rounded-lg border border-gray-300 dark:border-gray-600 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
+<div class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">
+                      mail
+                    </span>
+</div>
+<form action="{% url 'esqueceu_Senha' %}" method="POST">{% csrf_token %}
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#333333] dark:text-white focus:outline-0 focus:ring-0 border-0 bg-white dark:bg-gray-800 h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-2 text-base font-normal leading-normal rounded-r-lg" name="email" placeholder="seuemail@exemplo.com" type="email"/>
+</div>
+</label>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+<span class="truncate">Enviar Link de Recuperação</span>
+</button>
+</form>
+</div>
+<div class="mt-8">
+  {% for message in messages %}
+  <p>{{message}}</p>
+  {% endfor %}
+<a class="text-primary text-sm font-medium leading-normal pb-3 pt-1 text-center block hover:underline" href="{% url 'login' %}">Voltar para a página de Login</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

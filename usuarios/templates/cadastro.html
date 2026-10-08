@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Crie sua conta - Clínica AI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<div class="header" style="margin-bottom: 20px;">
+
+  {% include 'includes/header.html'%}
+</div>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+  <div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+   
+    <main
+      class="w-full max-w-md rounded-xl bg-white p-6 shadow-sm dark:bg-background-dark dark:border dark:border-slate-800 sm:p-8">
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-2 text-center">
+          <p class="text-3xl font-black leading-tight tracking-[-0.033em] text-slate-900 dark:text-white">Crie sua conta
+          </p>
+          <p class="text-base font-normal leading-normal text-slate-500 dark:text-slate-400">Acesse seu histórico e
+            converse com nosso assistente virtual.</p>
+        </div>
+        <form class="flex flex-col gap-4" method="POST" action="{% url 'cadastroPatients' %}">{% csrf_token %}
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium leading-normal text-slate-800 dark:text-slate-300">Nome completo</p>
+            <div class="relative flex w-full items-center">
+              <span class="material-symbols-outlined absolute left-3 text-slate-400">person</span>
+              <input
+                class="form-input flex h-12 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-300 bg-white p-3 pl-10 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-500"
+                name="nome" placeholder="Digite seu nome completo" type="text" />
+            </div>
+          </label>
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium leading-normal text-slate-800 dark:text-slate-300">Seu melhor e-mail</p>
+            <div class="relative flex w-full items-center">
+              <span class="material-symbols-outlined absolute left-3 text-slate-400">mail</span>
+              <input
+                class="form-input flex h-12 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-300 bg-white p-3 pl-10 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-500"
+                name="email" placeholder="exemplo@email.com" type="email" />
+            </div>
+          </label>
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium leading-normal text-slate-800 dark:text-slate-300">Telefone</p>
+            <div class="relative flex w-full items-center">
+              <span class="material-symbols-outlined absolute left-3 text-slate-400">call</span>
+              <input
+                class="form-input flex h-12 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-300 bg-white p-3 pl-10 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-500"
+                name="telefone" placeholder="(+244) ***-***-***" type="tel" />
+            </div>
+          </label>
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium leading-normal text-slate-800 dark:text-slate-300">Data de Nascimento</p>
+            <div class="relative flex w-full items-center">
+              
+              <input class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-primary focus:ring-primary" id="data" type="date" name="dataN"/>
+            </div>
+          </label>
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium leading-normal text-slate-800 dark:text-slate-300">Crie uma senha forte
+            </p>
+            <div class="relative flex w-full items-center">
+              <span class="material-symbols-outlined absolute left-3 text-slate-400">lock</span>
+              <input
+                class="form-input flex h-12 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-slate-300 bg-white p-3 pl-10 text-base font-normal leading-normal text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-500"
+                name="password" placeholder="••••••••••" type="password" />
+              <button class="absolute right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                type="button">
+                <span class="material-symbols-outlined">visibility</span>
+              </button>
+            </div>
+          </label>
+          <div class="flex items-start gap-3 pt-2">
+            <input
+              class="form-checkbox mt-0.5 h-4 w-4 rounded border-slate-300 bg-white text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-800 dark:checked:bg-primary"
+              id="terms" type="checkbox" />
+            <label class="text-sm text-slate-600 dark:text-slate-400" for="terms">
+              Eu li e concordo com os <a class="font-medium text-primary hover:underline" href="#">Termos de Serviço</a>
+              e <a class="font-medium text-primary hover:underline" href="#">Política de Privacidade</a>.
+            </label>
+          </div>
+          {% for message in messages %}
+          <p>{{message}}</p>
+          {% endfor%}
+          <button
+            class="flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-semibold text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark"
+            type="submit">Criar conta</button>
+        </form>
+        <p class="text-center text-sm text-slate-600 dark:text-slate-400">
+          Já tem uma conta? <a class="font-bold text-primary underline hover:text-primary/90" href="{% url 'login' %}">Faça login</a>
+          
+        </p>
+      </div>
+    </main>
+    <footer class="absolute bottom-0 w-full p-6 text-center">
+      {% include 'includes/bot.html'%}
+      <p class="text-xs text-slate-500 dark:text-slate-400">© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

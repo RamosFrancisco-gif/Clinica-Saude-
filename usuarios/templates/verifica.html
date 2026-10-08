@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Código de Verificação</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2b8cee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+<div class="header" style="margin-bottom: 20px;">
+
+  {% include 'includes/header.html'%}
+</div>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4 group/design-root">
+<div class="flex w-full max-w-md flex-col items-center justify-center">
+<div class="w-full rounded-xl border border-gray-200/80 bg-white p-6 shadow-sm dark:border-gray-700/50 dark:bg-background-dark/50 sm:p-8">
+<div class="flex flex-col items-center text-center">
+<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20">
+<span class="material-symbols-outlined text-4xl" data-icon="shield">shield</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-[#111418] dark:text-white sm:text-3xl">Código de Verificação</h1>
+<p class="mt-2 text-base font-normal leading-normal text-gray-600 dark:text-gray-400">
+            Insira o código de 4 dígitos que enviamos para seu e-mail para continuar.
+      </p>
+
+</div>
+<form action="" method="POST">{% csrf_token %}
+<div class="mt-8 flex flex-col gap-y-6">
+<div class="flex flex-col items-center">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="verification-code">Seu código de 4 dígitos</label>
+<input class="h-14 w-48 rounded-lg border border-gray-300 bg-transparent text-center text-2xl font-bold tracking-[1.5em] [appearance:textfield] focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:text-white dark:focus:border-primary [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none" name="digitos" id="verification-code" maxlength="4" name="verification-code" oninput="this.value=this.value.replace(/[^0-9]/g,'');" pattern="\d{4}" placeholder="----" type="text"/>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide transition-colors duration-200 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-background-dark disabled:cursor-not-allowed disabled:opacity-50">
+<span class="truncate">Verificar</span>
+</button>
+</div>
+</form>
+<div class="mt-8 text-center">
+<p class="text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">Não recebeu o código? <a class="font-semibold text-primary underline-offset-2 hover:underline" href="{% url 'esqueceu_Senha'%}">Reenviar</a></p>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-center">
+<a class="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary" href="{% url 'login' %}">
+<span class="material-symbols-outlined text-base" data-icon="arrow_back">arrow_back</span>
+          Voltar para o login
+        </a>
+</div>
+</div>
+</div>
+
+</body></html>

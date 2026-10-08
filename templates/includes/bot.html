@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Chat Clínica Saúde+</title>
+  <style>
+    /* Botão fixo */
+    .bot-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 80px;
+      /* Movido mais para a esquerda */
+      background: #0078c2;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      transition: all 0.3s ease;
+    }
+
+
+    .bot-toggle-btn:hover {
+      background: #005f99;
+    }
+
+    /* Contêiner fixo do bot */
+    .bot-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 380px;
+      height: 100vh;
+      background: white;
+      box-shadow: -3px 0 15px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      z-index: 9999;
+      border-radius: 10px 0 0 10px;
+      overflow: hidden;
+    }
+
+    /* Cabeçalho do bot */
+    .bot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      background: #0078c2;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .bot-header button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Área de mensagens */
+    .bot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* Campo de entrada */
+    .bot-input-container {
+      display: flex;
+      padding: 12px;
+      background: #f8f8f8;
+      border-top: 1px solid #ddd;
+    }
+
+    #open-bot i {
+      font-size: 35px;
+      /* escolha o tamanho que quiser */
+    }
+
+    .bot-input-container textarea {
+      flex: 1;
+      resize: none;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .bot-input-container button {
+      background: #0078c2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 8px;
+      font-weight: bold;
+    }
+
+    .bot-input-container button:hover {
+      background: #005f99;
+    }
+
+    /* Mensagens */
+    .bot-message-user {
+      text-align: right;
+      margin-bottom: 8px;
+    }
+
+    .bot-message-bot {
+      text-align: left;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chat-container">
+    <!-- Botão para abrir o chat -->
+    <button id="open-bot" class="bot-toggle-btn"><i class="fa-solid fa-robot"></i></button>
+
+    <!-- Componente do bot fixo à direita -->
+    <div id="bot-container" class="bot-container">
+      <div class="bot-header">
+        <h2>Assistente Clínica Saúde+</h2>
+        <button id="close-bot">✖</button>
+      </div>
+      <div id="bot-messages" class="bot-messages"></div>
+      <div class="bot-input-container">
+        <textarea id="bot-input" placeholder="Digite sua pergunta..."></textarea>
+        <button id="bot-send">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const botContainer = document.getElementById("bot-container");
+    const openBot = document.getElementById("open-bot");
+    const closeBot = document.getElementById("close-bot");
+    const botMessages = document.getElementById("bot-messages");
+    const botInput = document.getElementById("bot-input");
+    const botSend = document.getElementById("bot-send");
+
+    // Abrir o bot e esconder o botão
+    openBot.addEventListener("click", () => {
+      botContainer.style.display = "flex";
+      openBot.style.display = "none";
+    });
+
+    // Fechar o bot e mostrar o botão novamente
+    closeBot.addEventListener("click", () => {
+      botContainer.style.display = "none";
+      openBot.style.display = "block";
+    });
+
+    // Função para adicionar mensagem
+    function addMessage(message, sender = "user") {
+      const msgDiv = document.createElement("div");
+      msgDiv.className =
+        sender === "user" ? "bot-message-user" : "bot-message-bot";
+      msgDiv.innerHTML = `<p><strong>${sender === "user" ? "Você" : "Bot"
+        }:</strong> ${message}</p>`;
+      botMessages.appendChild(msgDiv);
+      botMessages.scrollTop = botMessages.scrollHeight;
+    }
+
+    // Enviar mensagem
+    botSend.addEventListener("click", () => {
+      const userMessage = botInput.value.trim();
+      if (!userMessage) return;
+
+      addMessage(userMessage, "user");
+      fetch("/api/chat/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: userMessage }),
+        credentials: "same-origin"
+      })
+
+        .then((response) => response.json())
+        .then((data) => {
+          addMessage(data.response, "bot");
+        })
+        .catch((error) => {
+          console.error(error);
+          addMessage("Ocorreu um erro ao processar sua mensagem.", "bot");
+        });
+
+      botInput.value = "";
+    });
+
+    // Enviar mensagem pressionando Enter
+    botInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        botSend.click();
+      }
+    });
+  </script>
+</body>
+
+</html>

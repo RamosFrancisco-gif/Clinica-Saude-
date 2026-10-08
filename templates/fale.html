@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contato - Clínica Saúde+</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2",
+              "background-light": "#F5F7FA",
+              "background-dark": "#101922",
+              "text-light": "#333333",
+              "text-dark": "#f5f7fa",
+              "subtext-light": "#617589",
+              "subtext-dark": "#a0aec0",
+              "border-light": "#e2e8f0",
+              "border-dark": "#2d3748",
+              "card-light": "#FFFFFF",
+              "card-dark": "#1a202c",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+
+{% include 'includes/header.html'%}
+
+<main class="flex-grow">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+<!-- PageHeading -->
+<div class="text-center mb-16">
+<h1 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-primary">Fale Conosco</h1>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-subtext-light dark:text-subtext-dark">Estamos aqui para ajudar. Preencha o formulário abaixo ou utilize nossos canais de contato.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+<!-- Left Column: Contact Info & Map -->
+<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-4">
+<!-- ListItem Endereço -->
+<div class="flex items-start gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold">Endereço</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Arimba/Rua Pricncipal</p>
+</div>
+</div>
+<!-- ListItem Telefone -->
+<a class="flex items-start gap-4 group" href="#">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold group-hover:text-primary transition-colors">Telefone</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark group-hover:text-primary transition-colors">(+244) 929152722</p>
+</div>
+</a>
+<!-- ListItem E-mail -->
+<a class="flex items-start gap-4 group" href="mailto:contato@vidasaudavel.com.br">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-base font-semibold group-hover:text-primary transition-colors">E-mail</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark group-hover:text-primary transition-colors">contato@clinicasaudemais.com.br</p>
+</div>
+</a>
+</div>
+<!-- Horário de Funcionamento -->
+<div>
+<h3 class="text-lg font-bold mb-4">Horário de Funcionamento</h3>
+<ul class="space-y-2 text-sm text-subtext-light dark:text-subtext-dark">
+<li class="flex justify-between"><span>Segunda - Sexta</span> <strong>08:00 - 18:00</strong></li>
+<li class="flex justify-between"><span>Sábado</span> <strong>09:00 - 13:00</strong></li>
+<li class="flex justify-between"><span>Domingo</span> <strong>Fechado</strong></li>
+</ul>
+</div>
+<!-- Mapa -->
+<div>
+<h3 class="text-lg font-bold mb-4">Nossa Localização</h3>
+<div class="aspect-video w-full rounded-lg overflow-hidden border border-border-light dark:border-border-dark">
+<img alt="Mapa mostrando a localização da Clínica Vida Saudável" class="w-full h-full object-cover" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVizEDSBPcgVrYoaQv1TUSY0uUkkQMg8Rp5KXWKr8n9925RCq7lmv8XgtCejzfc3IJOWD3SQBY83VBB_nbLpBm2qZ5cUrEmUdJRbcQpveSGF-PK00x4f5VI86oJhIRNAymW2sa4BviAejrg-yVNEq92ZOZvyE2HC4l2dCZY4mFqmbiXNAmMpfK5efvDPRIRLEJRLztToBRpW0BOW8iVCiOmbfvjRSShnDj3OphEwdV7GaR1GUO-n-b6bh5YqGXkyeWzZhxRWDgWDR-"/>
+</div>
+</div>
+</div>
+<!-- Right Column: Form -->
+<div class="bg-card-light dark:bg-card-dark p-8 rounded-lg shadow-sm border border-border-light dark:border-border-dark">
+<h2 class="text-2xl font-bold mb-1">Envie sua Dúvida</h2>
+<p class="text-subtext-light dark:text-subtext-dark mb-6">Ou solicite um agendamento.</p>
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium mb-2" for="full-name">Nome Completo</label>
+<input class="block w-full rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" id="full-name" name="full-name" placeholder="Seu nome completo" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="email">E-mail</label>
+<input class="block w-full rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" id="email" name="email" placeholder="seuemail@exemplo.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="phone">Telefone</label>
+<input class="block w-full rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" id="phone" name="phone" placeholder="(+244) 929 *** ****" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="subject">Assunto</label>
+<input class="block w-full rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" id="subject" name="subject" placeholder="Ex: Agendamento de consulta" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-2" for="message">Sua Mensagem</label>
+<textarea class="block w-full rounded border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary text-sm" id="message" name="message" placeholder="Digite sua mensagem aqui..." rows="5"></textarea>
+</div>
+<div>
+<button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="submit">
+                                    Enviar Mensagem
+                                </button>
+</div>
+</form>
+<div class="mt-8 text-center bg-primary/10 p-4 rounded-lg">
+<p class="text-sm text-primary">Prefere uma resposta rápida? <a class="font-bold underline" href="#">Fale com nosso assistente virtual!</a></p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">© 2025 Clínica Saúde+. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Termos de Serviço</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Política de Privacidade</a>
+</div>
+</div>
+</div>
+{% include 'includes/bot.html'%}
+</footer>
+</div>
+</body></html>

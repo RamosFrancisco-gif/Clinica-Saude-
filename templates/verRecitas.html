@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dashboard do Médico - Agendamentos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<div class="header" style="margin-bottom: 20px;">
+
+  {% include 'includes/header.html'%}
+</div>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-300">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="flex flex-col w-64 bg-white dark:bg-background-dark dark:border-r dark:border-gray-800 p-4 shrink-0">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+
+<div class="flex flex-col">
+<h1 class="text-[#111418] dark:text-white text-base font-semibold leading-normal">{{paciente.nome}}</h1>
+
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'historico' %}">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+<p class="text-sm font-medium leading-normal">Histórico de Agendamentos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="#">
+<span class="material-symbols-outlined text-xl">description</span>
+<p class="text-sm font-medium leading-normal">Documentos</p>
+</a>
+<a  class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'ver_pedidos_analises' %}">
+<span class="material-symbols-outlined text-xl">description</span>
+<p class="text-sm font-medium leading-normal">Ver Pedidos de analise</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="{% url 'home' %}">
+<span class="material-symbols-outlined text-xl">logout</span>
+<p class="text-sm font-medium leading-normal">Sair</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto flex flex-col gap-1">
+    <a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-[#111418] dark:text-gray-300" href="#">
+        
+        
+</a>
+</div>
+</aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Top Navigation Bar -->
+            
+            <!-- Page Content -->
+            <div class="layout-content-container flex flex-col max-w-[1024px] w-full px-6">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                    <div class="lg:col-span-2 flex flex-col gap-6">
+
+                        <div
+                            class="bg-white dark:bg-gray-900 rounded-xl border border-[#dbe0e6] dark:border-gray-800 shadow-sm p-6">
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold pb-4 flex items-center">
+                                Receita Médica
+                            </h3>
+
+                            <textarea name="receita"
+                                class="w-full min-h-[160px] rounded-xl border-[#dbe0e6] dark:border-gray-700 dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary p-4"
+                                >{{prescricao.medicamento_Doze}}</textarea>
+
+                        </div>
+                        <div
+                            class="bg-white dark:bg-gray-900 rounded-xl border border-[#dbe0e6] dark:border-gray-800 shadow-sm p-6">
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold pb-4 flex items-center">
+                                <span class="material-symbols-outlined mr-2 text-primary">spa</span> Recomendações de
+                                Estilo de Vida e Cuidados 
+                            </h3>
+                            <textarea name="cuidados"
+                                class="w-full min-h-[160px] rounded-xl border-[#dbe0e6] dark:border-gray-700 dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary p-4"
+                                >{{prescricao.observacoes}}</textarea>
+                            
+
+                        </div>
+                    </div>
+                    <!-- Sidebar AI Assistant -->
+
+                </div>
+                <!-- Bottom Action Bar (Mobile Responsive) -->
+                <div class="mt-8 mb-12 flex justify-center">
+
+                </div>
+        </main>
+
+
+    </div>
+</body>
+
+</html>

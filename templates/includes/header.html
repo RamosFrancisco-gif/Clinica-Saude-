@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/global/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+
+<header>
+    <div class="interface">
+        <div class="flex">
+            <div class="logo">
+
+
+                <div class="flex size-8 items-center justify-center rounded-full bg-primary text-white">
+                    <span class="material-symbols-outlined text-base">health_and_safety</span>
+                </div>
+                <a class="text-xl font-bold leading-tight tracking-[-0.015em]" href="{% url 'home' %}">Clínica Saúde+</a>
+          
+
+            </div>
+            {% if not request.session.paciente_id %}
+            <div class="link">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home'%}">Início</a></li>
+                        <li><a href="{% url 'servicos'%}">Serviços</a></li>
+                        <li><a href="{% url 'sobre'%}">Sobre Nós</a></li>
+                        <li><a href="{% url 'contacto'%}">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="link2">
+                <a href="{% url 'login' %}">Login</a>
+            </div>
+            {% elif request.session.paciente_id %}
+             <div class="link">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home'%}">Início</a></li>
+                        <li><a href="{% url 'perfil'%}">Perfil</a></li>
+                        <li><a href="{% url 'servicos'%}">Serviços</a></li>
+                        <li><a href="{% url 'sobre'%}">Sobre Nós</a></li>
+                        <li><a href="{% url 'contacto'%}">Contato</a></li>
+                        <li><a href="{% url 'agendar'%}">Marcar Consulta</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="link2">
+                <a href="{% url 'logout' %}">{{request.session.paciente_nome}} | Logout</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+</html>
