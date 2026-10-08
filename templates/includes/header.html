@@ -16,14 +16,14 @@
     <div class="interface">
         <div class="flex">
             <div class="logo">
-
-
-                <div class="flex size-8 items-center justify-center rounded-full bg-primary text-white">
-                    <i class="fa-solid fa-shield-halved text-base"></i>
-                </div>
-                <a class="text-xl font-bold leading-tight tracking-[-0.015em]" href="{% url 'home' %}">Clínica Saúde+</a>
-          
-
+                <a class="flex items-center gap-2.5 group" href="{% url 'home' %}" aria-label="Clínica Saúde+ - Início">
+                    <span class="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-cyan-400 text-white text-lg shadow-lg shadow-primary/30 ring-1 ring-white/40 transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </span>
+                    <span class="text-xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white">
+                        Clínica <span class="text-primary">Saúde<span class="text-cyan-500">+</span></span>
+                    </span>
+                </a>
             </div>
             {% if not request.session.paciente_id %}
             <div class="link">
