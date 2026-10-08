@@ -1,0 +1,56 @@
+/* Skeleton loading — Clínica Saúde+ (aplica-se apenas ao <main>, o header nunca é tocado) */
+
+@keyframes skl-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+main .skl,
+main .skl-line,
+main .skl-avatar,
+main .skl-card {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 800px 100%;
+  animation: skl-shimmer 1.2s infinite linear;
+  color: transparent !important;
+  border-color: transparent !important;
+}
+
+main .skl-line {
+  border-radius: 0.375rem;
+  min-height: 0.9rem;
+}
+
+main .skl-avatar {
+  border-radius: 9999px;
+}
+
+main .skl-card {
+  border-radius: 0.75rem;
+  min-height: 120px;
+}
+
+/* Imagens dentro do main: shimmer de fundo + fade-in quando carregar */
+main img[data-skl] {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 800px 100%;
+  animation: skl-shimmer 1.2s infinite linear;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+main img[data-skl].skl-done {
+  animation: none;
+  background: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .skl,
+  main .skl-line,
+  main .skl-avatar,
+  main .skl-card,
+  main img[data-skl] {
+    animation: none;
+  }
+}

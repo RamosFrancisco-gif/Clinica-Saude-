@@ -49,11 +49,11 @@
 <nav class="flex flex-col gap-1">
 
 <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary cursor-pointer border-l-4 border-primary">
-<span class="material-symbols-outlined fill-1">calendar_today</span>
+<i class="fa-solid fa-calendar-day"></i>
 <p class="text-sm font-semibold">Agendamentos</p>
 </div>
 <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#617589] hover:bg-primary/5 hover:text-primary transition-all cursor-pointer">
-<span class="material-symbols-outlined">group</span>
+<i class="fa-solid fa-users"></i>
 <a href="{% url 'homeMedico'%}" class="text-sm font-semibold">Home</a>
 </div>
 
@@ -63,7 +63,7 @@
 </div>
 <div class="flex flex-col gap-2">
 <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#617589] hover:bg-red-50 hover:text-red-500 transition-all cursor-pointer">
-<span class="material-symbols-outlined">logout</span>
+<i class="fa-solid fa-right-from-bracket"></i>
 <a class="text-sm font-semibold" href="{% url 'logout' %}">Sair</a>
 </div>
 </div>
@@ -74,12 +74,12 @@
 <header class="flex items-center justify-between border-b border-[#dbe0e6] dark:border-gray-800 bg-white dark:bg-background-dark px-8 py-4 sticky top-0 z-10">
 <div class="flex items-center gap-8 flex-1">
 <div class="flex items-center gap-2 text-primary">
-<span class="material-symbols-outlined text-3xl">medical_services</span>
+<i class="fa-solid fa-briefcase-medical text-3xl"></i>
 <h2 class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight">Clínica Saúde</h2>
 </div>
 <div class="flex-1 max-w-md relative">
     <form action="{% url 'filterpactients' %}" method="GET">{% csrf_token %}
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#617589] pointer-events-none">search</span>
+<i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#617589] pointer-events-none"></i>
 <input class="w-full h-10 pl-10 pr-4 rounded-lg bg-background-light dark:bg-gray-800 border-none focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Buscar pacientes por nome ou CPF..."/>
 </form>
 </div>
@@ -104,17 +104,17 @@
 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-[#dbe0e6] dark:border-gray-800 shadow-sm flex flex-col gap-2">
 <div class="flex items-center justify-between mb-2">
 <p class="text-[#617589] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider">Consultas Hoje</p>
-<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">event_note</span>
+<i class="fa-solid fa-calendar-check text-primary bg-primary/10 p-2 rounded-lg"></i>
 </div>
 <div class="flex items-end gap-3">
 <p class="text-[#111418] dark:text-white text-3xl font-black">12</p>
-<p class="text-green-600 text-sm font-bold mb-1 flex items-center"><span class="material-symbols-outlined text-xs">trending_up</span> +15%</p>
+<p class="text-green-600 text-sm font-bold mb-1 flex items-center"><i class="fa-solid fa-arrow-trend-up text-xs"></i> +15%</p>
 </div>
 </div>
 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-[#dbe0e6] dark:border-gray-800 shadow-sm flex flex-col gap-2">
 <div class="flex items-center justify-between mb-2">
 <p class="text-[#617589] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider">Aguardando</p>
-<span class="material-symbols-outlined text-amber-500 bg-amber-500/10 p-2 rounded-lg">hourglass_empty</span>
+<i class="fa-solid fa-hourglass-half text-amber-500 bg-amber-500/10 p-2 rounded-lg"></i>
 </div>
 <div class="flex items-end gap-3">
 <p class="text-[#111418] dark:text-white text-3xl font-black">04</p>
@@ -124,11 +124,11 @@
 <div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-[#dbe0e6] dark:border-gray-800 shadow-sm flex flex-col gap-2">
 <div class="flex items-center justify-between mb-2">
 <p class="text-[#617589] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider">Finalizadas</p>
-<span class="material-symbols-outlined text-emerald-500 bg-emerald-500/10 p-2 rounded-lg">check_circle</span>
+<i class="fa-solid fa-circle-check text-emerald-500 bg-emerald-500/10 p-2 rounded-lg"></i>
 </div>
 <div class="flex items-end gap-3">
 <p class="text-[#111418] dark:text-white text-3xl font-black">08</p>
-<p class="text-red-500 text-sm font-bold mb-1 flex items-center"><span class="material-symbols-outlined text-xs">trending_down</span> -5%</p>
+<p class="text-red-500 text-sm font-bold mb-1 flex items-center"><i class="fa-solid fa-arrow-trend-down text-xs"></i> -5%</p>
 </div>
 </div>
 </div>
@@ -181,10 +181,10 @@
 <p class="text-xs text-[#617589] dark:text-gray-400 font-medium">Exibindo 12 agendamentos para o dia 24/05</p>
 <div class="flex gap-2">
 <button class="p-1 rounded bg-background-light dark:bg-gray-800 hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_left</span>
+<i class="fa-solid fa-chevron-left text-sm"></i>
 </button>
 <button class="p-1 rounded bg-background-light dark:bg-gray-800 hover:bg-primary/10 transition-colors">
-<span class="material-symbols-outlined text-sm">chevron_right</span>
+<i class="fa-solid fa-chevron-right text-sm"></i>
 </button>
 </div>
 </div>

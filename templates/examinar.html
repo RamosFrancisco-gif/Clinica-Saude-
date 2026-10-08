@@ -68,12 +68,12 @@
 
                     <div
                         class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary cursor-pointer border-l-4 border-primary">
-                        <span class="material-symbols-outlined fill-1">calendar_today</span>
+                        <i class="fa-solid fa-calendar-day"></i>
                         <p class="text-sm font-semibold">Agendamentos</p>
                     </div>
                     <div
                         class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#617589] hover:bg-primary/5 hover:text-primary transition-all cursor-pointer">
-                        <span class="material-symbols-outlined">group</span>
+                        <i class="fa-solid fa-users"></i>
                         <a href="{% url 'homeMedico'%}" class="text-sm font-semibold">Home</a>
                     </div>
 
@@ -84,7 +84,7 @@
             <div class="flex flex-col gap-2">
                 <div
                     class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#617589] hover:bg-red-50 hover:text-red-500 transition-all cursor-pointer">
-                    <span class="material-symbols-outlined">logout</span>
+                    <i class="fa-solid fa-right-from-bracket"></i>
                     <a class="text-sm font-semibold" href="{% url 'logout' %}">Sair</a>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                 <div class="flex flex-wrap justify-between items-end gap-3 pb-8">
                     <a href="{% url 'pedido_de_analise' consulta_id=consulta.id %}"
                         class="flex h-10 items-center justify-center px-4 rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 transition-all">
-                        <span class="material-symbols-outlined mr-2 text-xl">send</span> Emitir Receita Diagnóstico
+                        <i class="fa-solid fa-paper-plane mr-2 text-xl"></i> Emitir Receita Diagnóstico
                 </a>
                     <form action="{% url 'examinar' paciente.id %}" method="POST">
                         {% csrf_token %}
@@ -114,7 +114,7 @@
                         <div class="flex gap-3">
                             <button
                                 class="flex h-10 items-center justify-center px-4 rounded-lg border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-bold">
-                                <span class="material-symbols-outlined mr-2 text-xl">save</span> Salvar
+                                <i class="fa-solid fa-floppy-disk mr-2 text-xl"></i> Salvar
                             </button>
                         </div>
                 </div>
@@ -136,7 +136,7 @@
                         <div
                             class="bg-white dark:bg-gray-900 rounded-xl border border-[#dbe0e6] dark:border-gray-800 shadow-sm p-6">
                             <h3 class="text-[#111418] dark:text-white text-lg font-bold pb-4 flex items-center">
-                                <span class="material-symbols-outlined mr-2 text-primary">spa</span> Recomendações de
+                                <i class="fa-solid fa-spa mr-2 text-primary"></i> Recomendações de
                                 Estilo de Vida e Cuidados
                             </h3>
                             <textarea name="cuidados"

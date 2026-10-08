@@ -52,9 +52,7 @@
 <div class="bg-white dark:bg-background-dark/50 shadow-sm rounded-xl p-8 border border-gray-200/50 dark:border-white/10">
 <div class="flex flex-col items-center mb-8">
 <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-<span class="material-symbols-outlined text-primary text-4xl">
-                  health_and_safety
-                </span>
+<i class="fa-solid fa-shield-halved text-primary text-4xl"></i>
 </div>
 <p class="text-[#333333] dark:text-gray-200 text-sm font-medium">Clínica Saúde+</p>
 </div>
@@ -69,9 +67,7 @@
 <p class="text-[#333333] dark:text-gray-200 text-sm font-medium leading-normal pb-2">E-mail</p>
 <div class="flex w-full flex-1 items-stretch rounded-lg border border-gray-300 dark:border-gray-600 focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
 <div class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg">
-<span class="material-symbols-outlined">
-                      mail
-                    </span>
+<i class="fa-solid fa-envelope"></i>
 </div>
 <form action="{% url 'esqueceu_Senha' %}" method="POST">{% csrf_token %}
 <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-[#333333] dark:text-white focus:outline-0 focus:ring-0 border-0 bg-white dark:bg-gray-800 h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-2 text-base font-normal leading-normal rounded-r-lg" name="email" placeholder="seuemail@exemplo.com" type="email"/>
